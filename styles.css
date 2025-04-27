@@ -1,0 +1,152 @@
+/* Container for the overlay */
+.overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 9999;
+}
+
+/* Logo and Channel Name */
+.overlay .logo-container {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.overlay .logo-container img {
+width: 40px;
+height: 40px;
+margin-right: 10px;
+}
+
+.overlay .logo-container span {
+font-weight: bold;
+font-size: 18px;
+}
+
+/* Title styling */
+.overlay .title {
+font-size: 15px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+/* Author and Source */
+.overlay .author,
+.overlay .source {
+font-size: 14px;
+margin-bottom: 5px;
+}
+
+/* Social Media Icons */
+.social-icons {
+display: flex;
+justify-content: space-between;
+margin-top: 10px;
+}
+
+.social-icons a img {
+width: 25px;
+height: 25px;
+transition: opacity 0.3s;
+}
+
+.social-icons a img:hover {
+opacity: 0.8;
+}
+
+.tooltip-content {
+max-width: 400px; 
+padding: 10px; 
+color: #FFFFFF"
+}
+
+.tooltip-content h2{
+    margin-top: 0; 
+    font-size: 24px;
+}
+
+.tooltip-content p{
+    margin: 8px 0; 
+    font-size: 18px;
+}
+
+.tooltip-content video{
+    margin-top: 10px;
+}
+
+
+@media (max-width: 1200px) {
+
+    .tooltip-content {
+        padding: 10px; 
+        color: #FFFFFF"
+        }
+        
+        .tooltip-content h2{
+            margin-top: 0; 
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .tooltip-content p{
+            margin: 8px 0; 
+            font-size: 30px;
+        }
+        
+        .tooltip-content video{
+            margin-top: 30px;
+        }
+
+
+        .overlay .logo-container img {
+            width: 45px;
+            height: 45px;
+            margin-right: 20px;
+        }
+        
+        .overlay .logo-container span {
+        font-weight: bold;
+        font-size: 25px;
+        }
+        
+        /* Title styling */
+        .overlay .title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 18px;
+        margin-top: 15px;
+        }
+        
+        /* Author and Source */
+        .overlay .author,
+        .overlay .source {
+        font-size: 22px;
+        margin-bottom: 5px;
+        }
+        
+        /* Social Media Icons */
+        .social-icons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        }
+        
+        .social-icons a img {
+        width: 30px;
+        height: 30px;
+        transition: opacity 0.3s;
+        }
+        
+        .social-icons a img:hover {
+        opacity: 0.8;
+        }
+        
+}
