@@ -1,3 +1,35 @@
+.video-hide{
+    display: "block";
+}
+
+.highlight-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.1s, text-decoration 0.1s;
+  }
+  
+  .highlight-link:hover {
+    color: #ff8097; /* màu khi hover (ví dụ xanh ngọc) */
+    text-decoration: underline; /* thêm gạch chân khi hover */
+  }
+  
+.bottom-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif;
+  }
+  
 /* Container for the overlay */
 .overlay {
     position: fixed;
@@ -23,7 +55,7 @@ margin-bottom: 10px;
 .overlay .logo-container img {
 width: 40px;
 height: 40px;
-margin-right: 10px;
+margin-right: 15px;
 }
 
 .overlay .logo-container span {
@@ -63,9 +95,9 @@ opacity: 0.8;
 }
 
 .tooltip-content {
-max-width: 400px; 
-padding: 10px; 
-color: #FFFFFF"
+    max-width: 400px; 
+    padding: 10px; 
+    color: #FFFFFF"
 }
 
 .tooltip-content h2{
@@ -83,8 +115,30 @@ color: #FFFFFF"
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
+    .video-hide{
+        display: none;
+    }
 
+    .bottom-overlay {
+        visibility: hidden;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 9999;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        font-family: Arial, sans-serif;
+    }
+  
+      
     .tooltip-content {
         padding: 10px; 
         color: #FFFFFF"
