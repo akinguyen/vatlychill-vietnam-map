@@ -119,25 +119,6 @@ opacity: 0.8;
     .video-hide{
         display: none;
     }
-
-    .bottom-overlay {
-        visibility: hidden;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 8px;
-        font-size: 14px;
-        z-index: 9999;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        font-family: Arial, sans-serif;
-    }
-  
       
     .tooltip-content {
         padding: 10px; 
