@@ -1,187 +1,364 @@
-.video-hide{
-    display: "block";
+/* === Base Reset === */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+
+.mapboxgl-ctrl,
+.mapboxgl-ctrl-attrib-inner {
+  display: none !important;
+}
+
+/* === Utility Classes === */
+.video-hide {
+  display: block;
 }
 
 .highlight-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.1s, text-decoration 0.1s;
-  }
-  
-  .highlight-link:hover {
-    color: #ff8097; /* màu khi hover (ví dụ xanh ngọc) */
-    text-decoration: underline; /* thêm gạch chân khi hover */
-  }
-  
-.bottom-overlay {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    font-family: Arial, sans-serif;
-  }
-  
-/* Container for the overlay */
-.overlay {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    width: 250px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    z-index: 9999;
+  color: white;
+  text-decoration: none;
+  transition: color 0.1s, text-decoration 0.1s;
 }
 
-/* Logo and Channel Name */
+.highlight-link:hover {
+  color: #ff8097;
+  text-decoration: underline;
+}
+
+/* === Bottom Overlay === */
+.bottom-overlay {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* === Filter Overlay === */
+#filter-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+}
+
+.filter-section {
+  display: flex;
+  align-items: flex-start;
+  color: white;
+}
+
+.filter-section strong {
+  margin-bottom: 10px;
+}
+
+.years,
+.missions {
+  display: flex;
+  flex-direction: column;
+}
+
+.years {
+  min-width: 120px;
+}
+
+.missions {
+  margin-left: 30px;
+}
+
+.years label,
+.missions label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+
+h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+input[type="checkbox"] {
+  accent-color: white;
+}
+
+/* === Overlay Box (Top Right Info Panel) === */
+.overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  z-index: 9999;
+}
+
 .overlay .logo-container {
-display: flex;
-align-items: center;
-margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .overlay .logo-container img {
-width: 40px;
-height: 40px;
-margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
 }
 
 .overlay .logo-container span {
-font-weight: bold;
-font-size: 18px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-/* Title styling */
 .overlay .title {
-font-size: 15px;
-font-weight: bold;
-margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Author and Source */
 .overlay .author,
 .overlay .source {
-font-size: 14px;
-margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
-/* Social Media Icons */
+/* === Social Media Icons === */
 .social-icons {
-display: flex;
-justify-content: space-between;
-margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
 .social-icons a img {
-width: 25px;
-height: 25px;
-transition: opacity 0.3s;
+  width: 25px;
+  height: 25px;
+  transition: opacity 0.3s;
 }
 
 .social-icons a img:hover {
-opacity: 0.8;
+  opacity: 0.8;
 }
 
+/* === Tooltip Content === */
 .tooltip-content {
-    max-width: 400px; 
-    padding: 10px; 
-    color: #FFFFFF"
+  max-width: 400px;
+  padding: 10px;
+  color: #fff !important;
+  font-family: Arial, sans-serif;
 }
 
-.tooltip-content h2{
-    margin-top: 0; 
-    font-size: 24px;
+.tooltip-content h2 {
+  margin-top: 0;
+  font-size: 24px;
 }
 
-.tooltip-content p{
-    margin: 8px 0; 
-    font-size: 18px;
+.tooltip-content p {
+  margin: 8px 0;
+  font-size: 18px;
 }
 
-.tooltip-content video{
-    margin-top: 10px;
+.tooltip-content video {
+  margin-top: 10px;
 }
 
-
+/* === Responsive Styles === */
 @media (max-width: 1080px) {
-    .video-hide{
-        display: none;
-    }
-      
-    .tooltip-content {
-        padding: 10px; 
-        color: #FFFFFF"
-        }
-        
-        .tooltip-content h2{
-            margin-top: 0; 
-            font-size: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .tooltip-content p{
-            margin: 8px 0; 
-            font-size: 30px;
-        }
-        
-        .tooltip-content video{
-            margin-top: 30px;
-        }
+  .video-hide {
+    display: none;
+  }
 
+  .tooltip-content {
+    padding: 10px;
+    color: #fff;
+  }
 
-        .overlay .logo-container img {
-            width: 45px;
-            height: 45px;
-            margin-right: 20px;
-        }
-        
-        .overlay .logo-container span {
-        font-weight: bold;
-        font-size: 25px;
-        }
-        
-        /* Title styling */
-        .overlay .title {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 18px;
-        margin-top: 15px;
-        }
-        
-        /* Author and Source */
-        .overlay .author,
-        .overlay .source {
-        font-size: 22px;
-        margin-bottom: 5px;
-        }
-        
-        /* Social Media Icons */
-        .social-icons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-        }
-        
-        .social-icons a img {
-        width: 30px;
-        height: 30px;
-        transition: opacity 0.3s;
-        }
-        
-        .social-icons a img:hover {
-        opacity: 0.8;
-        }
-        
+  .tooltip-content h2 {
+    margin-top: 0;
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .tooltip-content p {
+    margin: 8px 0;
+    font-size: 30px;
+  }
+
+  .tooltip-content video {
+    margin-top: 30px;
+  }
+
+  .overlay .logo-container img {
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+  }
+
+  .overlay .logo-container span {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .overlay .title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 18px;
+  }
+
+  .overlay .author,
+  .overlay .source {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  .social-icons a img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-top: 8px solid #ff8097;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-warning-swal {
+  font-family: Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark blueish background */
+  color: #ffffff;            /* White text */
+  font-size: 18px;
+  border: 2px solid #ff8097;
+  border-radius: 10px;
+}
+
+/* Change the warning icon color */
+.custom-warning-swal > .swal2-warning {
+  border-color: #ff8097; /* custom border color */
+  color: #ff8097;         /* checkmark or "!" color */
+}
+
+/* Optional: Adjust icon background (the circle) */
+.custom-warning-swal > .swal2-warning::before,
+.custom-warning-swal > .swal2-warning::after {
+  background: #ff8097;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+  background-color: #ff8097;
+}
+
+.submit-section {
+  display: flex;
+  justify-content: center;
+}
+
+#submit-btn {
+  background-color: rgb(112, 102, 224);
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+#submit-btn:hover {
+  background-color: rgb(86, 74, 223); /* Darker green on hover */
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-header strong {
+  color: white;
+}
+
+#close-filter-btn {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#filter-icon-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-family: Arial, sans-serif;
+  background-color: rgb(112, 102, 224);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+#submit-btn:hover {
+  background-color: rgb(86, 74, 223); /* Darker green on hover */
+}
+
+.hidden {
+  display: none !important;
 }
