@@ -62,7 +62,7 @@ body {
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 700px;
   font-family: Arial, sans-serif;
 }
 
@@ -77,17 +77,17 @@ body {
 }
 
 .years,
-.missions {
+.missions-1, .missions-2 {
   display: flex;
   flex-direction: column;
 }
 
-.years {
-  min-width: 120px;
+.missions-1 {
+  margin-left: 50px;
 }
 
-.missions {
-  margin-left: 30px;
+.missions-2 {
+  margin-left: 50px;
 }
 
 .years label,
@@ -303,6 +303,7 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
 .submit-section {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 #submit-btn {

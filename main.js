@@ -64,17 +64,23 @@ document.getElementById('submit-btn').addEventListener('click', function() {
 
     showLoading()
 
-    fetch("https://vietnam-map-backend.onrender.com/filter", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        mode: 'cors',  // This is important for CORS
-        credentials: 'same-origin',// Or 'include' if you need to include cookies,
-        body: JSON.stringify({ missiontype: selectedMissions, missionyear: selectedYears })
-    }).then(res => res.json()).then(hexCounts => {
+    const yearStr = selectedYears.join(',');
+    const missionStr = selectedMissions.join(',');
 
-    const updatedH3Layer = new deck.H3HexagonLayer({
+    // Construct URL with query parameters
+    
+    const url = `https://flask-vlc-map.vercel.app/filter?years=${encodeURIComponent(yearStr)}&missions=${encodeURIComponent(missionStr)}`;
+    //const url = `http://localhost:5000/filter?years=${encodeURIComponent(yearStr)}&missions=${encodeURIComponent(missionStr)}`;
+
+    fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json(); // assuming the server returns JSON
+    })
+    .then(hexCounts => {
+      const updatedH3Layer = new deck.H3HexagonLayer({
         id: 'H3HexagonLayer',
         data: hexCounts,
         getHexagon: d => d.h3_index,
@@ -85,15 +91,17 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         coverage: 0.9,
         opacity: 0.3,
         getFillColor: d => [255, (1 - d.mission_count / 500) * 255, 0]
+      });
+
+      deckInstance.setProps({
+          layers: [updatedH3Layer]
+      });
+
+      hideLoading()
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
     });
-
-    deckInstance.setProps({
-        layers: [updatedH3Layer]
-    });
-
-    hideLoading()
-
-    }).catch(err => console.error("Error:", err));
 })
 
 // Hàm cập nhật mảng dữ liệu
@@ -163,4 +171,3 @@ filterIconBtn.addEventListener("click", () => {
     filterOverlay.classList.remove("hidden");
     filterIconBtn.classList.add("hidden");
 });
-
