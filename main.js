@@ -50,10 +50,12 @@ async function createDeck(hexCounts) {
 
 document.getElementById('submit-btn').addEventListener('click', function() {
     if (selectedYears.length == 0 || selectedMissions.length == 0) {
+    console.log(selectedMissions)
+
     Swal.fire({
-        title: 'Cần chọn ít nhất 1 năm và 1 loại nhiệm vụ 🤒',
+        title: 'Cần chọn ít nhất một năm và một loại nhiệm vụ',
         icon: 'warning',
-        confirmButtonText: 'OK',
+        confirmButtonText: 'OKIE',
         customClass: {
         popup: 'custom-warning-swal'
         }
@@ -105,19 +107,26 @@ document.getElementById('submit-btn').addEventListener('click', function() {
 })
 
 // Hàm cập nhật mảng dữ liệu
-function updateArray(checkboxes, selectedArray, isYear = false) {
+function updateArray(checkboxes, selectedArray, isMission = false) {
     selectedArray.length = 0;  // Xóa dữ liệu cũ trong mảng
     checkboxes.forEach(checkbox => {
     if (checkbox.checked) {
-        let value = checkbox.value;
-        // Nếu là mảng năm, chuyển giá trị thành số nguyên
-        if (isYear) {
-        selectedArray.push(parseInt(value));  // Chuyển đổi thành số nguyên
-        } else {
-        selectedArray.push(value);
-        }
+        selectedArray.push(checkbox.value);
     }
     });
+
+    if (isMission){
+        // If mission 15 is selected, add 16 automatically
+        if (selectedArray.includes("15")) {
+            selectedArray.push("16");
+        }
+        
+        // If mission 15 is selected, add 16 automatically
+        if (selectedArray.includes("7")) {
+            selectedArray.push("11");
+        }
+    }
+
 }
 
 // Hàm xử lý chọn tất cả năm
@@ -126,7 +135,7 @@ document.getElementById('selectAllYears').addEventListener('change', function() 
     checkboxes.forEach(checkbox => {
     checkbox.checked = this.checked;
     });
-    updateArray(checkboxes, selectedYears, true);  // Chuyển đổi giá trị thành integer
+    updateArray(checkboxes, selectedYears);  // Chuyển đổi giá trị thành integer
 });
 
 // Hàm xử lý chọn tất cả nhiệm vụ
@@ -135,19 +144,19 @@ document.getElementById('selectAllMissions').addEventListener('change', function
     checkboxes.forEach(checkbox => {
     checkbox.checked = this.checked;
     });
-    updateArray(checkboxes, selectedMissions);
+    updateArray(checkboxes, selectedMissions, true);
 });
 
 // Hàm cập nhật khi các checkbox con thay đổi
 document.querySelectorAll('.year-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
-    updateArray(document.querySelectorAll('.year-checkbox'), selectedYears, true);  // Chuyển đổi giá trị thành integer
+    updateArray(document.querySelectorAll('.year-checkbox'), selectedYears);  // Chuyển đổi giá trị thành integer
     });
 });
 
 document.querySelectorAll('.mission-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', function() {
-    updateArray(document.querySelectorAll('.mission-checkbox'), selectedMissions);
+    updateArray(document.querySelectorAll('.mission-checkbox'), selectedMissions, true);
     });
 });
 

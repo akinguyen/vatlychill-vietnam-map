@@ -1,0 +1,55 @@
+/* === Responsive Styles === */
+@media (max-width: 1080px) {
+    .video-hide {
+      display: none;
+    }
+  
+    .tooltip-content {
+      padding: 10px;
+      color: #fff;
+    }
+  
+    .tooltip-content h2 {
+      margin-top: 0;
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+  
+    .tooltip-content p {
+      margin: 8px 0;
+      font-size: 30px;
+    }
+  
+    .tooltip-content video {
+      margin-top: 30px;
+    }
+  
+    .overlay .logo-container img {
+      width: 45px;
+      height: 45px;
+      margin-right: 20px;
+    }
+  
+    .overlay .logo-container span {
+      font-weight: bold;
+      font-size: 25px;
+    }
+  
+    .overlay .title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 18px;
+    }
+  
+    .overlay .author,
+    .overlay .source {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+  
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+    }
+  }

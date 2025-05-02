@@ -3,6 +3,9 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: 'Nunito';
+  font-weight: 500;
+  font-size: 18px;
 }
 
 #deck-container {
@@ -45,8 +48,6 @@ body {
   color: white;
   padding: 8px 15px;
   border-radius: 8px;
-  font-size: 14px;
-  font-family: Arial, sans-serif;
   z-index: 9999;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -62,14 +63,16 @@ body {
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  max-width: 700px;
-  font-family: Arial, sans-serif;
 }
 
 .filter-section {
   display: flex;
   align-items: flex-start;
   color: white;
+}
+
+.filter-section label {
+  margin-bottom:5px
 }
 
 .filter-section strong {
@@ -118,8 +121,6 @@ input[type="checkbox"] {
   padding: 15px;
   border-radius: 8px;
   width: 250px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
   z-index: 9999;
 }
 
@@ -137,18 +138,15 @@ input[type="checkbox"] {
 
 .overlay .logo-container span {
   font-weight: bold;
-  font-size: 18px;
 }
 
 .overlay .title {
-  font-size: 15px;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .overlay .author,
 .overlay .source {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 5px;
 }
 
@@ -174,7 +172,6 @@ input[type="checkbox"] {
   max-width: 400px;
   padding: 10px;
   color: #fff !important;
-  font-family: Arial, sans-serif;
 }
 
 .tooltip-content h2 {
@@ -189,62 +186,6 @@ input[type="checkbox"] {
 
 .tooltip-content video {
   margin-top: 10px;
-}
-
-/* === Responsive Styles === */
-@media (max-width: 1080px) {
-  .video-hide {
-    display: none;
-  }
-
-  .tooltip-content {
-    padding: 10px;
-    color: #fff;
-  }
-
-  .tooltip-content h2 {
-    margin-top: 0;
-    font-size: 40px;
-    margin-bottom: 30px;
-  }
-
-  .tooltip-content p {
-    margin: 8px 0;
-    font-size: 30px;
-  }
-
-  .tooltip-content video {
-    margin-top: 30px;
-  }
-
-  .overlay .logo-container img {
-    width: 45px;
-    height: 45px;
-    margin-right: 20px;
-  }
-
-  .overlay .logo-container span {
-    font-weight: bold;
-    font-size: 25px;
-  }
-
-  .overlay .title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 18px;
-  }
-
-  .overlay .author,
-  .overlay .source {
-    font-size: 22px;
-    margin-bottom: 5px;
-  }
-
-  .social-icons a img {
-    width: 30px;
-    height: 30px;
-  }
 }
 
 #loading-screen {
@@ -262,7 +203,7 @@ input[type="checkbox"] {
 
 .spinner {
   border: 8px solid rgba(255, 255, 255, 0.2);
-  border-top: 8px solid #ff8097;
+  border-top: 8px solid #e63b3b;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -276,50 +217,41 @@ input[type="checkbox"] {
 }
 
 .custom-warning-swal {
-  font-family: Arial, sans-serif;
   background-color: rgba(0, 0, 0, 0.8); /* Dark blueish background */
   color: #ffffff;            /* White text */
-  font-size: 18px;
-  border: 2px solid #ff8097;
+  border: 2px solid #ca2323;
   border-radius: 10px;
 }
 
 /* Change the warning icon color */
 .custom-warning-swal > .swal2-warning {
-  border-color: #ff8097; /* custom border color */
-  color: #ff8097;         /* checkmark or "!" color */
-}
-
-/* Optional: Adjust icon background (the circle) */
-.custom-warning-swal > .swal2-warning::before,
-.custom-warning-swal > .swal2-warning::after {
-  background: #ff8097;
+  border-color: #ca2323; /* custom border color */
+  color: #ca2323;         /* checkmark or "!" color */
 }
 
 div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
-  background-color: #ff8097;
+  background-color: #ca2323;
 }
 
 .submit-section {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 #submit-btn {
-  background-color: rgb(112, 102, 224);
+  background-color: #ca2323;
   color: white;
   padding: 10px 20px;
-  font-size: 14px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-family: Arial, sans-serif;
+  font-size: inherit;
 }
 
 #submit-btn:hover {
-  background-color: rgb(86, 74, 223); /* Darker green on hover */
+  background-color: #a11414; /* Darker green on hover */
 }
 
 .filter-header {
@@ -345,21 +277,49 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
   position: fixed;
   top: 20px;
   left: 20px;
-  font-family: Arial, sans-serif;
-  background-color: rgb(112, 102, 224);
+  background-color: #ca2323;
   color: white;
   border: none;
   padding: 10px;
-  font-size: 16px;
+  font-size: inherit;
   border-radius: 8px;
   cursor: pointer;
   z-index: 1100;
 }
 
-#submit-btn:hover {
-  background-color: rgb(86, 74, 223); /* Darker green on hover */
-}
-
 .hidden {
   display: none !important;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #ca2323;
+}
+
+.tooltip-container {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+.tooltip-container .tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Adjust above the label */
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }

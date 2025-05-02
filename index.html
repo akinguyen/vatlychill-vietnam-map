@@ -15,6 +15,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
@@ -22,7 +23,7 @@
     <div id="loading-screen">
       <div class="spinner"></div>
     </div>
-    <button id="filter-icon-btn" class="hidden"><strong>🔍 Bộ lọc</strong></button>
+    <button id="filter-icon-btn" class="hidden"><strong><i class="fas fa-filter"  style="margin-right: 5px;"></i>Bộ lọc</strong></button>
 
     <div id="filter-overlay">
       <div class="filter-header">
@@ -45,49 +46,168 @@
           <label><input type="checkbox" class="year-checkbox" value="9"> 1973</label>
           <label><input type="checkbox" class="year-checkbox" value="10"> 1975</label>
         </div>
-  
+    
         <!-- Nhiệm vụ -->
         <div class="missions-1">
-          <strong>Loại nhiệm vụ (1)</strong>
+          <strong>Loại nhiệm vụ</strong>
           <label><input type="checkbox" id="selectAllMissions"> Tất cả</label>
-          <label><input type="checkbox" class="mission-checkbox" value="1"> ACTIVE AIR DEFENSE </label>
-          <label><input type="checkbox" class="mission-checkbox" value="2"> AERIAL MINING </label>
-          <label><input type="checkbox" class="mission-checkbox" value="3"> AIR INTERDICTION </label>
-          <label><input type="checkbox" class="mission-checkbox" value="4"> ARMED HELICOPTER </label>
-          <label><input type="checkbox" class="mission-checkbox" value="5"> ARMED RECCE </label>
-          <label><input type="checkbox" class="mission-checkbox" value="6"> BAS CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="7"> CBT CGO AIRLAND </label>
-          <label><input type="checkbox" class="mission-checkbox" value="8"> CLOSE AIR SUPPORT </label>
-          <label><input type="checkbox" class="mission-checkbox" value="9"> COMBAT OBSERVATION </label>
-          <label><input type="checkbox" class="mission-checkbox" value="10"> COMBT CARGO AIR DROP </label>
-          <label><input type="checkbox" class="mission-checkbox" value="11"> COMBT CARGO AIR LAND </label>
-          <label><input type="checkbox" class="mission-checkbox" value="12"> COMBT TROOP AIR DROP </label>
-          <label><input type="checkbox" class="mission-checkbox" value="13"> COMBT TROOP CARRYING </label>
-          <label><input type="checkbox" class="mission-checkbox" value="14"> DEF CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="15"> DIR AIR SUPPT </label>
+          
+          <!-- Offensive Missions -->
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="29">
+            Strike
+            <span class="tooltip-text">Tấn công mục tiêu</span>
+          </label>
+              
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="31">
+            TARCON
+            <span class="tooltip-text">Điều phối tấn công mục tiêu</span>
+          </label>
+
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="24">
+            MUDY
+            <span class="tooltip-text">Tác chiến quân sự ban ngày</span>
+          </label>
+
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="27">
+            SEDY
+            <span class="tooltip-text">Chế áp phòng không ban ngày</span>
+          </label>
+
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="19">
+            Flak Suppression
+            <span class="tooltip-text">Chế áp pháo phòng không</span>
+          </label>
+              
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="3">
+            Air Interdiction
+            <span class="tooltip-text">Ngăn chặn đường không</span>
+          </label>
+
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="8">
+            Close Air Support
+            <span class="tooltip-text">Yểm trợ không chiến tầm gần</span>
+          </label>
+            
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="15">
+            Direct Air Support
+            <span class="tooltip-text">Yểm trợ không chiến trực tiếp</span>
+          </label>
+
+          <!-- Defensive Missions -->
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="1">
+            Active Air Defense
+            <span class="tooltip-text">Phòng không chủ động</span>
+          </label>
+
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="6">
+            Basic Combat Air Patrol
+            <span class="tooltip-text">Tuần tra không chiến cơ bản</span>
+          </label>
+          
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="30">
+            Target Combat Air Patrol
+            <span class="tooltip-text">Tuần tra bảo vệ mục tiêu</span>
+          </label>
+
+          <label class="tooltip-container">
+            <input type="checkbox" class="mission-checkbox" value="28">
+            Ship Combat Air Patrol
+            <span class="tooltip-text">Tuần tra không chiến bảo vệ tàu</span>
+          </label>
         </div>
+
         <div class="missions-2">
-          <strong>Loại nhiệm vụ (2)</strong>
-          <label><input type="checkbox" class="mission-checkbox" value="16"> DIRECT AIR SUPPORT </label>
-          <label><input type="checkbox" class="mission-checkbox" value="17"> ESCORT/COVER </label>
-          <label><input type="checkbox" class="mission-checkbox" value="18"> FAC/TAC </label>
-          <label><input type="checkbox" class="mission-checkbox" value="19"> FLAK SUPPRESSION </label>
-          <label><input type="checkbox" class="mission-checkbox" value="20"> FRIENDLY A/C DAM GND </label>
-          <label><input type="checkbox" class="mission-checkbox" value="21"> FRIENDLY A/C DES GND </label>
-          <label><input type="checkbox" class="mission-checkbox" value="22"> LANDING ZONE PREP </label>
-          <label><input type="checkbox" class="mission-checkbox" value="23"> MIG CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="24"> MUDY </label>
-          <label><input type="checkbox" class="mission-checkbox" value="25"> RES CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="26"> SAR CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="27"> SEDY </label>
-          <label><input type="checkbox" class="mission-checkbox" value="28"> SHIP_ CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="29"> STRIKE </label>
-          <label><input type="checkbox" class="mission-checkbox" value="30"> TAR CMBT AIR PATROL </label>
-          <label><input type="checkbox" class="mission-checkbox" value="31"> TARCON </label>
+        <strong style="visibility: hidden;">Loại nhiệm vụ</strong>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="14">
+          Defensive Combat Air Patrol
+          <span class="tooltip-text">Tuần tra không chiến phòng thủ</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="25">
+          Reserve Combat Air Patrol
+          <span class="tooltip-text">Tuần tra không chiến dự bị</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="26">
+          SAR Combat Air Patrol
+          <span class="tooltip-text">Tuần tra không chiến giải cứu</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="23">
+          MIG Combat Air Patrol
+          <span class="tooltip-text">Tuần tra không chiến chống MIG</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="9">
+          Combat Observation
+          <span class="tooltip-text">Quan sát chiến đấu</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="13">
+          Combat Troop Carrying
+          <span class="tooltip-text">Chở lính chiến đấu</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="12">
+          Combat Troop Airdrop
+          <span class="tooltip-text">Thả lính chiến đấu trên không</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="7">
+          Combat Cargo Airland
+          <span class="tooltip-text">Vận tải chiến đấu bằng hạ cánh</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="10">
+          Combat Cargo Airdrop
+          <span class="tooltip-text">Thả hàng chiến đấu trên không</span>
+        </label>
+
+        <!-- Support Missions -->    
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="22">
+          Landing Zone Preparation
+          <span class="tooltip-text">Chuẩn bị khu vực đổ bộ</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="17">
+          Escort / Cover
+          <span class="tooltip-text">Hộ tống / Che chắn</span>
+        </label>
+
+        <label class="tooltip-container">
+          <input type="checkbox" class="mission-checkbox" value="18">
+          FAC / TAC
+          <span class="tooltip-text">Chỉ thị mục tiêu tiền tuyến</span>
+        </label>
         </div>
+
+
       </div>
       <div class="submit-section">
-        <button id="submit-btn">Submit</button>
+        <button id="submit-btn">Xem</button>
       </div>
     </div>
     <div class="overlay">
@@ -95,7 +215,7 @@
         <img src="vlc-logo.jpg" alt="YouTube Logo">
         <span class="highlight-link">Vật Lý Chill</span>
       </a>
-      <div class="title">Bản đồ số lần Mỹ ném bom ở Việt Nam giai đoạn 1965 – 1975</div>
+      <div class="title">Bản đồ số nhiệm vụ quân sự của Mỹ và đồng minh trên lãnh thổ Việt Nam giai đoạn 1965 – 1975</div>
       <div class="author">Authors: Daniel và Duy Nguyễn</div>
       <div class="source">Data Source: <a class="highlight-link" target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/datasets/usaf/vietnam-war-bombing-operations">THOR</a></div>
       <div class="social-icons">
