@@ -145,7 +145,8 @@ input[type="checkbox"] {
 }
 
 .overlay .author,
-.overlay .source {
+.overlay .source,
+.overlay .contributor{
   font-size: 16px;
   margin-bottom: 5px;
 }
